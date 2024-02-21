@@ -8012,6 +8012,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mapping-context-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#dev":
+  version: 0.0.1
+  resolution: "mapping-context-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#commit=69720b9213deb6c392dba04df17eedd793a26939"
+  dependencies:
+    react: 18.2.0
+    react-native: 0.71.7
+  checksum: 2343211285005f2d69f5f65a4f42fe4ad98e772524d90766f4198593009e72848e7e893077cb9ed728bf59ac75f9308403990295c33281fe647842bbfd637456
+  languageName: node
+  linkType: hard
+
 "mapping-dashboard-rn-app@workspace:.":
   version: 0.0.0-use.local
   resolution: "mapping-dashboard-rn-app@workspace:."
@@ -8025,6 +8035,8 @@ __metadata:
     eslint: 8.19.0
     eslint-config-rn-mapping: "git+ssh://git@github.com-pessoal:williamcamasil/eslint-config-rn-mapping.git#dev"
     jest: 29.2.1
+    mapping-context-rn: "git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#dev"
+    mapping-style-guide-rn: "git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#dev"
     mapping-tools-rn: "git+ssh://git@github.com-pessoal:williamcamasil/mapping-tools-rn.git#dev"
     metro-react-native-babel-preset: 0.73.9
     prettier: 2.4.1
@@ -8034,6 +8046,16 @@ __metadata:
     typescript: 4.9.5
   languageName: unknown
   linkType: soft
+
+"mapping-style-guide-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#dev":
+  version: 0.0.1
+  resolution: "mapping-style-guide-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#commit=0c92567bb54236ff6564a0820da03ef5f834f159"
+  dependencies:
+    react: 18.2.0
+    react-native: 0.71.7
+  checksum: f5a39bb2b48c2051ddc9bb1626d18ede6fd6d62ab5e60dc6be3b3f20d88af40965ce5fe54d711c51e3010e56665c183c61043aa5bcfc276aea3a688b29b62ae8
+  languageName: node
+  linkType: hard
 
 "mapping-tools-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-tools-rn.git#dev":
   version: 1.0.0

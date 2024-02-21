@@ -31,6 +31,8 @@
     "eslint": "8.19.0",
     "eslint-config-rn-mapping": "git+ssh://git@github.com-pessoal:williamcamasil/eslint-config-rn-mapping.git#dev",
     "jest": "29.2.1",
+    "mapping-context-rn": "git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#dev",
+    "mapping-style-guide-rn": "git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#dev",
     "mapping-tools-rn": "git+ssh://git@github.com-pessoal:williamcamasil/mapping-tools-rn.git#dev",
     "metro-react-native-babel-preset": "0.73.9",
     "prettier": "2.4.1",
