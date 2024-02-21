@@ -5,26 +5,32 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "eslint .",
+    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx --cache --ignore-pattern",
+    "lint:ci": "npx eslint . --ext .js,.jsx,.ts,.tsx --ignore-pattern",
     "start": "react-native start",
-    "test": "jest"
+    "test": "npx jest",
+    "test:ci": "npx jest --ci --runInBand",
+    "test:coverage": "npx jest --coverage && open coverage/lcov-report/index.html",
+    "tsc": "npx tsc --noEmit",
+    "lint:tsc:ci": "run-p lint:ci tsc",
+    "upgrade-app-modules": "npx upgrade-app-modules",
+    "pod-install": "npx --yes pod-install"
   },
   "dependencies": {
     "react": "18.2.0",
     "react-native": "0.71.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0",
-    "@babel/preset-env": "^7.20.0",
-    "@babel/runtime": "7.20.0",
-    "@react-native-community/eslint-config": "3.2.0",
     "@tsconfig/react-native": "2.0.2",
     "@types/jest": "29.2.1",
     "@types/react": "18.0.24",
     "@types/react-test-renderer": "18.0.0",
     "babel-jest": "29.2.1",
+    "babel-preset-rn-mapping": "git+ssh://git@github.com-pessoal:williamcamasil/babel-preset-rn-mapping.git#dev",
     "eslint": "8.19.0",
+    "eslint-config-rn-mapping": "git+ssh://git@github.com-pessoal:williamcamasil/eslint-config-rn-mapping.git#dev",
     "jest": "29.2.1",
+    "mapping-tools-rn": "git+ssh://git@github.com-pessoal:williamcamasil/mapping-tools-rn.git#dev",
     "metro-react-native-babel-preset": "0.73.9",
     "prettier": "2.4.1",
     "react-test-renderer": "18.2.0",
