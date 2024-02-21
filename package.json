@@ -5,15 +5,16 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx --cache --ignore-pattern",
-    "lint:ci": "npx eslint . --ext .js,.jsx,.ts,.tsx --ignore-pattern",
     "start": "react-native start",
     "test": "npx jest",
     "test:ci": "npx jest --ci --runInBand",
     "test:coverage": "npx jest --coverage && open coverage/lcov-report/index.html",
+    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx --cache",
+    "lint:ci": "npx eslint . --ext .js,.jsx,.ts,.tsx",
     "tsc": "npx tsc --noEmit",
     "lint:tsc:ci": "run-p lint:ci tsc",
     "upgrade-app-modules": "npx upgrade-app-modules",
+    "sync-with-core": "npx sync-with-core",
     "pod-install": "npx --yes pod-install"
   },
   "dependencies": {
