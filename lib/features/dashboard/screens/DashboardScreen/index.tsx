@@ -27,7 +27,7 @@ const DashboardScreen = () => {
   const navigation = useNavigationHolder();
 
   const goToNextPage = useCallback(() => {
-    navigation.navigate('Login');
+    navigation.replace('LOGIN');
   }, [navigation]);
 
   return (
