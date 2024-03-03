@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
 
 import { Navigation as DashboardNavigation } from '../features/dashboard';
+import { Navigation as MappingTeamNavigation } from '../features/mapping-team';
 import NavigatorParamList from './types';
 
 const Stack = createStackNavigator<NavigatorParamList>();
@@ -18,6 +19,7 @@ const Navigation = () => {
       initialRouteName={'DashboardNavigation'}
     >
       <Stack.Screen name="DashboardNavigation" component={DashboardNavigation} />
+      <Stack.Screen name="MappingTeamNavigation" component={MappingTeamNavigation} />
     </Stack.Navigator>
   );
 };

@@ -12,6 +12,7 @@ import {
   Spacer,
   Text,
   Button,
+  NavigationBar,
 } from 'mapping-style-guide-rn';
 
 const styles = StyleSheet.create({
@@ -21,30 +22,33 @@ const styles = StyleSheet.create({
   },
 });
 
-const DashboardScreen = () => {
+const SquadScreen = () => {
   const theme = useTheme();
   const navigation = useNavigationHolder();
 
   const goToNextPage = useCallback(() => {
-    navigation.navigate('MappingTeamNavigation');
+    navigation.replace('SquadScreen');
   }, [navigation]);
 
   return (
-    <Container padding={theme.spacings.sLarge}>
-      <Text>
-        Dashboard
-      </Text>
-      <Spacer size={theme.spacings.sLarge} />
-      <Button
-        testID="activate-credit-landing-page-next-button"
-        variant="containedPrimary"
-        size="large"
-        onPress={goToNextPage}
-      >
-        Equipe
-      </Button>
+    <Container>
+      <NavigationBar />
+      <Container padding={theme.spacings.sLarge}>
+        <Text>
+          Squad Screen
+        </Text>
+        <Spacer size={theme.spacings.sLarge} />
+        <Button
+          testID="activate-credit-landing-page-next-button"
+          variant="containedPrimary"
+          size="large"
+          onPress={goToNextPage}
+        >
+          Equipe
+        </Button>
+      </Container>
     </Container>
   );
 };
 
-export default DashboardScreen;
+export default SquadScreen;
