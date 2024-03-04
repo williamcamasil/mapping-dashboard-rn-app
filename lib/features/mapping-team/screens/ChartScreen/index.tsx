@@ -26,6 +26,7 @@ import {
   useViewStyles,
 } from 'mapping-style-guide-rn';
 import { ChartScreenPropsType, SquadPropsType, squadList } from '../../api/SquadService';
+import LeaderMembers from '../../components/LeaderMembers';
 
 const styles = StyleSheet.create({
   containerRow: {
@@ -60,7 +61,11 @@ const ChartScreen = () => {
   });
 
   const handleAddNewItem = useCallback(() => {
-    getNavigationHolder().navigate('CreateNewItem');
+    getNavigationHolder().navigate('FormChartScreen', { formType: 'create' });
+  }, []);
+
+  const handleSelectedItem = useCallback((itemSelected: SquadPropsType) => {
+    getNavigationHolder().navigate('SquadScreen', { itemSelected: itemSelected });
   }, []);
 
   const handleBackPress = useCallback(() => {
@@ -96,11 +101,12 @@ const ChartScreen = () => {
     return itemList.squads.map((squad: SquadPropsType) => (
       <View key={squad.Id}>
         <Spacer size={theme.spacings.sSmall} />
-        {/* <TeamMembers
+        <LeaderMembers
           itemData={squad}
+          onItemPress={handleSelectedItem}
           onItemDeleted={handleListItens}
-          isAdminUser={state?.isAdminUser!}
-        /> */}
+          isAdminUser={loggedUser?.isAdminUser!}
+        />
         <Spacer size={theme.spacings.sSmall} />
         <Divider />
       </View>
@@ -112,7 +118,7 @@ const ChartScreen = () => {
       <NavigationBar onBackPress={handleBackPress} addDivider />
       <ScrollView contentContainerStyle={scrollViewStyles}>
         <Text variant="headingSmall" weight="bold" color="neutralGray700">Organização da equipe</Text>
-        <Text color="neutralGray700">Organograma dos times:<Text>{}</Text></Text>
+        <Text color="neutralGray700">Organograma dos times: <Text weight="bold">{squadList.team}</Text></Text>
         {renderAddNewItemList()}
         <Spacer size={theme.spacings.sLarge} />
         <Text weight="bold" color="neutralGray700">Squads:</Text>

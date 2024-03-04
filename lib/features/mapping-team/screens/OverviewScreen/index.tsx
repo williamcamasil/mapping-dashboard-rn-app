@@ -68,11 +68,11 @@ const OverviewScreen = () => {
       getNavigationHolder().navigate('ChartScreen');
       return;
     }
-    // getNavigationHolder().navigate('CollaboratorScreen');
+    getNavigationHolder().navigate('CollaboratorScreen', { itemSelected: itemPressed.Collaborator });
   }, []);
 
   const handleAddNewItem = useCallback(() => {
-    getNavigationHolder().navigate('CreateNewItem');
+    getNavigationHolder().navigate('FormOverviewScreen', { formType: 'create' });
   }, []);
 
   const handleBackPress = useCallback(() => {

@@ -1,4 +1,4 @@
-type CollaboratorsPropsType = {
+export type CollaboratorsPropsType = {
   Id: number,
   Name: string,
   Office: string,

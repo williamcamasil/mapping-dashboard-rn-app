@@ -4,11 +4,10 @@ import {
   AlertModal,
   BottomSheet, BottomSheetPropsType, Container, MenuOption, Spacer, Text, useDismissAllModals, useModal, useTheme,
 } from 'mapping-style-guide-rn';
-import { MemberPropsType, TeamStructureEnum } from '../../api/TeamService';
-import { getNavigationHolder } from 'mapping-context-rn';
+import { CollaboratorsPropsType } from '../../api/SquadService';
 
 type OptionsBottomSheetType = BottomSheetPropsType & {
-  squadData: MemberPropsType;
+  squadData: CollaboratorsPropsType;
   onItemDeleted?: () => void;
 };
 
@@ -35,13 +34,7 @@ const OptionsBottomSheet = ({
   }, [squadData, onDismiss, showModal, onItemDeleted]);
 
   const handleEditItemList = useCallback(() => {
-    // console.log('squadData: ', squadData);
-    getNavigationHolder().navigate('FormOverviewScreen', { editedItem: squadData, formType: 'edit' });
-    onDismiss?.();
-  }, [squadData,  onDismiss, showModal]);
-
-  const handleEditItemListInformation = useCallback(() => {
-    // TODO: editar informações do item da lista
+    // TODO: editar item da lista
     onDismiss?.();
   }, [squadData,  onDismiss, showModal]);
 
@@ -54,11 +47,6 @@ const OptionsBottomSheet = ({
         <MenuOption onPress={handleEditItemList} description="Edite as informações">
           Editar item da lista
         </MenuOption>
-        {squadData.Structure !== TeamStructureEnum.EQUIPE ? null : (
-          <MenuOption onPress={handleEditItemListInformation} description="Edite informações da pessoa">
-            Editar informações da pessoa
-          </MenuOption>
-        )}
         <MenuOption onPress={handleDeleteItem} description="Retire item da sua lista">
           Excluir item da lista
         </MenuOption>

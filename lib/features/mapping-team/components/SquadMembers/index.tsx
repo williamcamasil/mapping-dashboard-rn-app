@@ -15,11 +15,11 @@ import {
 } from 'mapping-style-guide-rn';
 
 import OptionsBottomSheet from './OptionsBottomSheet';
-import { MemberPropsType } from '../../api/TeamService';
+import { CollaboratorsPropsType } from '../../api/SquadService';
 
-type TeamMembersType = {
-  itemData: MemberPropsType;
-  onItemPress?: (data: MemberPropsType) => void;
+type SquadMembersType = {
+  itemData: CollaboratorsPropsType;
+  onItemPress?: (data: CollaboratorsPropsType) => void;
   onItemDeleted?: () => void;
   isAdminUser: boolean;
 };
@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const TeamMembers = ({
+const SquadMembersType = ({
   itemData, onItemPress, onItemDeleted, isAdminUser,
-}: TeamMembersType) => {
+}: SquadMembersType) => {
   const theme = useTheme();
   const showModal = useModal();
 
@@ -61,19 +61,6 @@ const TeamMembers = ({
     onItemPress?.(itemData);
   }, [onItemPress, itemData]);
 
-  const renderIconStar = () => {
-    if (!itemData.Main) return null;
-
-    return (
-      <Icons.Default.Star
-        testID="icon-star"
-        width={theme.spacings.sXS}
-        height={theme.spacings.sXS}
-        color={theme.colors.secondary400}
-      />
-    );
-  };
-
   return (
     <TouchableOpacity
       testID="item-list"
@@ -85,10 +72,9 @@ const TeamMembers = ({
         <View style={styles.containerRow}>
           <Text variant="body" weight="bold" color="neutralGray700" numberOfLines={1}>{itemData.Name}</Text>
           <Spacer size={theme.spacings.sNano} />
-          {renderIconStar()}
         </View>
         <Spacer size={theme.spacings.sQuark} />
-        <Text>{itemData.Type}</Text>
+        <Text>{itemData.Office}</Text>
       </View>
       {isAdminUser && <Icons.Default.MenuDots
           width={24}
@@ -100,4 +86,4 @@ const TeamMembers = ({
   );
 };
 
-export default TeamMembers;
+export default SquadMembersType;
