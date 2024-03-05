@@ -36,8 +36,8 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
-  <key>UIAppFonts</key>
+	<string/>
+	<key>UIAppFonts</key>
 	<array>
 		<string>AvertaCY-Bold.ttf</string>
 		<string>AvertaCY-Regular.ttf</string>
