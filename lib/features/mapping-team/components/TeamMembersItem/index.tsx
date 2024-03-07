@@ -15,11 +15,11 @@ import {
 } from 'mapping-style-guide-rn';
 
 import OptionsBottomSheet from './OptionsBottomSheet';
-import { CollaboratorsPropsType } from '../../api/SquadService';
+import { MemberPropsType } from '../../api/TeamService';
 
-type SquadMembersType = {
-  itemData: CollaboratorsPropsType;
-  onItemPress?: (data: CollaboratorsPropsType) => void;
+type TeamMembersItemType = {
+  itemData: MemberPropsType;
+  onItemPress?: (data: MemberPropsType) => void;
   onItemDeleted?: () => void;
   isAdminUser: boolean;
 };
@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const SquadMembersType = ({
+const TeamMembersItem = ({
   itemData, onItemPress, onItemDeleted, isAdminUser,
-}: SquadMembersType) => {
+}: TeamMembersItemType) => {
   const theme = useTheme();
   const showModal = useModal();
 
@@ -52,7 +52,7 @@ const SquadMembersType = ({
   ], [theme]);
 
   const handleBulletPress = useCallback(() => {
-    showModal(OptionsBottomSheet, {
+    showModal(OptionsBottomSheet,{
       squadData: itemData, onItemDeleted,
     });
   }, [showModal, itemData, onItemDeleted]);
@@ -61,10 +61,22 @@ const SquadMembersType = ({
     onItemPress?.(itemData);
   }, [onItemPress, itemData]);
 
+  const renderIconStar = () => {
+    if (!itemData.Main) return null;
+
+    return (
+      <Icons.Default.Star
+        testID="icon-star"
+        width={theme.spacings.sXS}
+        height={theme.spacings.sXS}
+        color={theme.colors.primary400}
+      />
+    );
+  };
+
   return (
     <TouchableOpacity
       testID="item-list"
-      activeOpacity={onItemPress ? 0 : 1}
       style={containerItemStyles}
       onPress={handleItemPress}
     >
@@ -72,9 +84,10 @@ const SquadMembersType = ({
         <View style={styles.containerRow}>
           <Text variant="body" weight="bold" color="neutralGray700" numberOfLines={1}>{itemData.Name}</Text>
           <Spacer size={theme.spacings.sNano} />
+          {renderIconStar()}
         </View>
         <Spacer size={theme.spacings.sQuark} />
-        <Text>{itemData.Office}</Text>
+        <Text>{itemData.Type}</Text>
       </View>
       {isAdminUser && <Icons.Default.MenuDots
           width={24}
@@ -86,4 +99,4 @@ const SquadMembersType = ({
   );
 };
 
-export default SquadMembersType;
+export default TeamMembersItem;

@@ -3950,11 +3950,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^18.7.20":
-  version: 18.19.21
-  resolution: "@types/node@npm:18.19.21"
+  version: 18.19.22
+  resolution: "@types/node@npm:18.19.22"
   dependencies:
     undici-types: ~5.26.4
-  checksum: a8c66d97426e8bbe341a6bdf42af9659ff5ad500c790b9046c981e234db42a1354a6ae86d5d1b75c86dfa018c742fb65c400a0e31d8f9f7505d4cfe5bd11ba72
+  checksum: 89ba0923b4bfe961135d98cac3c1a726f5b61f23e90c8dcea4c44bde566a0ed3fb192198e0f1a700f4a1175027b63eb62a894992fb29b97a4af88b8dbbdc2fa6
   languageName: node
   linkType: hard
 
@@ -6055,6 +6055,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"data-view-buffer@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "data-view-buffer@npm:1.0.1"
+  dependencies:
+    call-bind: ^1.0.6
+    es-errors: ^1.3.0
+    is-data-view: ^1.0.1
+  checksum: ce24348f3c6231223b216da92e7e6a57a12b4af81a23f27eff8feabdf06acfb16c00639c8b705ca4d167f761cfc756e27e5f065d0a1f840c10b907fdaf8b988c
+  languageName: node
+  linkType: hard
+
+"data-view-byte-length@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "data-view-byte-length@npm:1.0.0"
+  dependencies:
+    call-bind: ^1.0.6
+    es-errors: ^1.3.0
+    is-data-view: ^1.0.1
+  checksum: fe516c30d15019717ffad5262c74e600b017f8b36103f2e5fdd1f08520fd1a93d32bff76397bfc255f9d4122ddc0eddb82c445b271e2d940d931d1944020804f
+  languageName: node
+  linkType: hard
+
+"data-view-byte-offset@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "data-view-byte-offset@npm:1.0.0"
+  dependencies:
+    call-bind: ^1.0.6
+    es-errors: ^1.3.0
+    is-data-view: ^1.0.1
+  checksum: 7f0bf8720b7414ca719eedf1846aeec392f2054d7af707c5dc9a753cc77eb8625f067fa901e0b5127e831f9da9056138d894b9c2be79c27a21f6db5824f009c2
+  languageName: node
+  linkType: hard
+
 "date-fns-tz@npm:1.3.7":
   version: 1.3.7
   resolution: "date-fns-tz@npm:1.3.7"
@@ -6579,13 +6612,16 @@ __metadata:
   linkType: hard
 
 "es-abstract@npm:^1.22.1, es-abstract@npm:^1.22.3, es-abstract@npm:^1.22.4":
-  version: 1.22.5
-  resolution: "es-abstract@npm:1.22.5"
+  version: 1.23.0
+  resolution: "es-abstract@npm:1.23.0"
   dependencies:
     array-buffer-byte-length: ^1.0.1
     arraybuffer.prototype.slice: ^1.0.3
     available-typed-arrays: ^1.0.7
     call-bind: ^1.0.7
+    data-view-buffer: ^1.0.1
+    data-view-byte-length: ^1.0.0
+    data-view-byte-offset: ^1.0.0
     es-define-property: ^1.0.0
     es-errors: ^1.3.0
     es-set-tostringtag: ^2.0.3
@@ -6602,6 +6638,7 @@ __metadata:
     internal-slot: ^1.0.7
     is-array-buffer: ^3.0.4
     is-callable: ^1.2.7
+    is-data-view: ^1.0.1
     is-negative-zero: ^2.0.3
     is-regex: ^1.1.4
     is-shared-array-buffer: ^1.0.3
@@ -6623,7 +6660,7 @@ __metadata:
     typed-array-length: ^1.0.5
     unbox-primitive: ^1.0.2
     which-typed-array: ^1.1.14
-  checksum: 984ab92f8226812365d1c4ecf12f3a408a4cc7a5bfe448f231fd39fa1ca9fb8cd65f27c76fc1a0bc3d1492c54b6637e57ad8e4954402e39bb916e9db4bcdbc61
+  checksum: 7680ecf8474adeb9eb294ed1cd37eec28c70a73598af6f4915e32450b0c95f19165a2c4d2e50453ac950f0f58a39ee8338dc16dd5fd216dcdbb1995ada293100
   languageName: node
   linkType: hard
 
@@ -8704,6 +8741,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-data-view@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "is-data-view@npm:1.0.1"
+  dependencies:
+    is-typed-array: ^1.1.13
+  checksum: 4ba4562ac2b2ec005fefe48269d6bd0152785458cd253c746154ffb8a8ab506a29d0cfb3b74af87513843776a88e4981ae25c89457bf640a33748eab1a7216b5
+  languageName: node
+  linkType: hard
+
 "is-date-object@npm:^1.0.1, is-date-object@npm:^1.0.5":
   version: 1.0.5
   resolution: "is-date-object@npm:1.0.5"
@@ -10288,7 +10334,7 @@ __metadata:
 
 "mapping-context-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#dev":
   version: 0.0.1
-  resolution: "mapping-context-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#commit=eca1e54785eb2b665789fb5ea8d3b0721fd3f1c1"
+  resolution: "mapping-context-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-context-rn.git#commit=0564a57af42c0a36fdee304dfcb2b56a2c6478b1"
   dependencies:
     "@react-navigation/native": 6.1.6
     "@react-navigation/stack": 6.2.2
@@ -10305,7 +10351,7 @@ __metadata:
     react-native-biometrics: 3.0.1
     react-native-safe-area-context: 4.5.1
     reactotron-react-native: 5.0.2
-  checksum: f5fff7f3d24e72466b50f70c946c6746c8c43681208f48cce2024d4c87ca5da305710c5f67a31d986879eca8515facd58851ac69bfd5b8d36db8a32fd91d2691
+  checksum: f9081655a4510e0af9c5178f6d0f1302ce392757def5743948d12b6640f13c82bae5cbd3437dffc80cccbca05d550b122ff5fcb5d7959c73e45578469cea0bf6
   languageName: node
   linkType: hard
 
@@ -10343,7 +10389,7 @@ __metadata:
 
 "mapping-style-guide-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#dev":
   version: 0.0.1
-  resolution: "mapping-style-guide-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#commit=e29e153f47ba4d1771b8e78e82bcee4a9777351d"
+  resolution: "mapping-style-guide-rn@git+ssh://git@github.com-pessoal:williamcamasil/mapping-style-guide-rn.git#commit=3ba2274291d47632333910acea31774b7975d6da"
   dependencies:
     "@callstack/react-theme-provider": 3.0.7
     "@types/color": 3.0.3
@@ -10353,7 +10399,7 @@ __metadata:
     react-final-form: 6.5.9
     react-native-calendars: 1.1299.0
     react-native-shimmer-placeholder: 2.0.9
-  checksum: 2dde77c917fba52f830e3214675b151d7fd09c93f2afbb7aaf6de5a7d10831c512d1abe3aa53b95deefb55fc90ee4a671ec54f2d3d423d31303404288e44e499
+  checksum: 12e80baa4e5855d445044c6683a81b91e56ff76ee1185a1b5866c388e0d72c8b6e76f845058be98e7535974da5ec2d28bfcd188b91c16d641610a1080f60d372
   languageName: node
   linkType: hard
 
@@ -12244,11 +12290,11 @@ __metadata:
   linkType: hard
 
 "qs@npm:^6.10.3, qs@npm:^6.11.0":
-  version: 6.11.2
-  resolution: "qs@npm:6.11.2"
+  version: 6.12.0
+  resolution: "qs@npm:6.12.0"
   dependencies:
-    side-channel: ^1.0.4
-  checksum: e812f3c590b2262548647d62f1637b6989cc56656dc960b893fe2098d96e1bd633f36576f4cd7564dfbff9db42e17775884db96d846bebe4f37420d073ecdc0b
+    side-channel: ^1.0.6
+  checksum: ba007fb2488880b9c6c3df356fe6888b9c1f4c5127552edac214486cfe83a332de09a5c40d490d79bb27bef977ba1085a8497512ff52eaac72e26564f77ce908
   languageName: node
   linkType: hard
 
@@ -13399,15 +13445,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"side-channel@npm:^1.0.4":
-  version: 1.0.5
-  resolution: "side-channel@npm:1.0.5"
+"side-channel@npm:^1.0.4, side-channel@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "side-channel@npm:1.0.6"
   dependencies:
-    call-bind: ^1.0.6
+    call-bind: ^1.0.7
     es-errors: ^1.3.0
     get-intrinsic: ^1.2.4
     object-inspect: ^1.13.1
-  checksum: 640446b4e5a9554116ed6f5bec17c6740fa8da2c1a19e4d69c1202191185d4cc24f21ba0dd3ccca140eb6a8ee978d0b5bc5132f09b7962db7f9c4bc7872494ac
+  checksum: bfc1afc1827d712271453e91b7cd3878ac0efd767495fd4e594c4c2afaa7963b7b510e249572bfd54b0527e66e4a12b61b80c061389e129755f34c493aad9b97
   languageName: node
   linkType: hard
 
@@ -14543,12 +14589,12 @@ __metadata:
   linkType: hard
 
 "typescript@npm:^4.6.4 || ^5.2.2":
-  version: 5.3.3
-  resolution: "typescript@npm:5.3.3"
+  version: 5.4.2
+  resolution: "typescript@npm:5.4.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 2007ccb6e51bbbf6fde0a78099efe04dc1c3dfbdff04ca3b6a8bc717991862b39fd6126c0c3ebf2d2d98ac5e960bcaa873826bb2bb241f14277034148f41f6a2
+  checksum: 96d80fde25a09bcb04d399082fb27a808a9e17c2111e43849d2aafbd642d835e4f4ef0de09b0ba795ec2a700be6c4c2c3f62bf4660c05404c948727b5bbfb32a
   languageName: node
   linkType: hard
 
@@ -14563,12 +14609,12 @@ __metadata:
   linkType: hard
 
 "typescript@patch:typescript@^4.6.4 || ^5.2.2#~builtin<compat/typescript>":
-  version: 5.3.3
-  resolution: "typescript@patch:typescript@npm%3A5.3.3#~builtin<compat/typescript>::version=5.3.3&hash=ad5954"
+  version: 5.4.2
+  resolution: "typescript@patch:typescript@npm%3A5.4.2#~builtin<compat/typescript>::version=5.4.2&hash=ad5954"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f61375590b3162599f0f0d5b8737877ac0a7bc52761dbb585d67e7b8753a3a4c42d9a554c4cc929f591ffcf3a2b0602f65ae3ce74714fd5652623a816862b610
+  checksum: c1b669146bca5529873aae60870e243fa8140c85f57ca32c42f898f586d73ce4a6b4f6bb02ae312729e214d7f5859a0c70da3e527a116fdf5ad00c9fc733ecc6
   languageName: node
   linkType: hard
 
@@ -15239,11 +15285,11 @@ __metadata:
   linkType: hard
 
 "yaml@npm:^2.1.1":
-  version: 2.4.0
-  resolution: "yaml@npm:2.4.0"
+  version: 2.4.1
+  resolution: "yaml@npm:2.4.1"
   bin:
     yaml: bin.mjs
-  checksum: 3c25ebae34ee702af772ebbd1855a980b1487cd21d6220d952592edb4f7d89322aafd14753d99924ba7076eb4c5b3d809c64bb532402b01af280f7af674277f1
+  checksum: 4c391d07a5d5e935e058babb71026c9cdc9a6fd889e35dd91b53cfb0a12691b67c6c5c740858e71345fef18cd9c13c554a6dda9196f59820d769d94041badb0b
   languageName: node
   linkType: hard
 

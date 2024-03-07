@@ -25,7 +25,7 @@ import {
   useTheme,
   useViewStyles,
 } from 'mapping-style-guide-rn';
-import TeamMembers from '../../components/TeamMembers';
+import TeamMembersItem from '../../components/TeamMembersItem';
 import { MemberPropsType, OverviewScreenPropsType, TeamStructureEnum, teamList } from '../../api/TeamService';
 
 const styles = StyleSheet.create({
@@ -45,23 +45,17 @@ const OverviewScreen = () => {
     { padding: theme.spacings.sLarge },
   ], [theme]);
 
-  // const isAdminUser = teamList.userType === AccessTypeEnum.ADMIN;
-
   const { call: handleListItens, loading } = useAsync(async () => {
-    // const responseData = await teamService.getTeamList();
-
-    // if (isResponseError(responseData)) {
-    //   showCommonErrors(showModal, responseData);
-    //   return;
-    // }
-
+    // * A intenção dessa chamada é buscar a lista de membros do time, com o serviço real seria possível fazer uso do código abaixo
+    // * const responseData = await teamService.getTeamList();
+    // * if (isResponseError(responseData)) {
+    // *   showCommonErrors(showModal, responseData);
+    // *   return;
+    // * }
     setItemList(teamList);
   }, [showModal]);
 
-  useDidMount(() => {
-    console.log('state?.isAdminUser!: ', loggedUser?.isAdminUser!);
-    handleListItens();
-  });
+  useDidMount(() => { handleListItens(); });
 
   const handlePressItem = useCallback((itemPressed: MemberPropsType) => {
     if(itemPressed.Structure === TeamStructureEnum.ORGANOGRAMA) {
@@ -89,7 +83,7 @@ const OverviewScreen = () => {
         <Spacer size={theme.spacings.sLarge} />
         <MenuOption onPress={handleAddNewItem}>
           <View style={styles.containerRow}>
-            <Icons.Default.Plus2 color={theme.colors.secondary400} />
+            <Icons.Default.Plus2 color={theme.colors.primary400} />
             <Spacer size={theme.spacings.sXXS} />
             <Text color="neutralGray700" weight="bold">Novo</Text>
           </View>
@@ -108,7 +102,7 @@ const OverviewScreen = () => {
     return itemList.members.map((member: MemberPropsType) => (
       <View key={member.Id}>
         <Spacer size={theme.spacings.sSmall} />
-        <TeamMembers
+        <TeamMembersItem
           itemData={member}
           onItemPress={handlePressItem}
           onItemDeleted={handleListItens}

@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import {
   ScrollView,
-  StyleSheet, View,
+  StyleSheet,
+  View,
 } from 'react-native';
 
 import {
@@ -9,14 +10,12 @@ import {
   useAppContext,
   useAsync,
   useDidMount,
-  useNavigationHolder,
 } from 'mapping-context-rn';
 import {
   Container,
   useTheme,
   Spacer,
   Text,
-  Button,
   NavigationBar,
   useViewStyles,
   useModal,
@@ -27,8 +26,8 @@ import {
 } from 'mapping-style-guide-rn';
 import { RouteProp } from '@react-navigation/native';
 import NavigatorParamList from '../../navigation/types';
-import { ChartScreenPropsType, CollaboratorsPropsType, SquadPropsType } from '../../api/SquadService';
-import SquadMembers from '../../components/SquadMembers';
+import { CollaboratorsPropsType, SquadPropsType } from '../../api/SquadService';
+import SquadMembersItem from '../../components/SquadMembersItem';
 
 const styles = StyleSheet.create({
   containerRow: {
@@ -45,7 +44,6 @@ const SquadScreen = ({
   route,
 }: SquadScreenPropsType) => {
   const theme = useTheme();
-  const navigation = useNavigationHolder();
   const teamList = route.params.itemSelected;
   const { loggedUser } = useAppContext();
   const showModal = useModal();
@@ -56,12 +54,11 @@ const SquadScreen = ({
   ], [theme]);
 
   const { call: handleListItens, loading } = useAsync(async () => {
-    // const responseData = await teamService.getTeamList();
-
-    // if (isResponseError(responseData)) {
-    //   showCommonErrors(showModal, responseData);
-    //   return;
-    // }
+    // * const responseData = await teamService.getTeamList();
+    // * if (isResponseError(responseData)) {
+    // *   showCommonErrors(showModal, responseData);
+    // *   return;
+    // * }
 
     setItemList(teamList);
   }, [showModal]);
@@ -92,9 +89,9 @@ const SquadScreen = ({
         <Spacer size={theme.spacings.sLarge} />
         <MenuOption onPress={handleAddNewItem}>
           <View style={styles.containerRow}>
-            <Icons.Default.Plus2 color={theme.colors.secondary400} />
+            <Icons.Default.Plus2 color={theme.colors.primary400} />
             <Spacer size={theme.spacings.sXXS} />
-            <Text color="neutralGray700" weight="bold">Novo squad</Text>
+            <Text color="neutralGray700" weight="bold">Novo colaborador</Text>
           </View>
         </MenuOption>
       </>
@@ -111,7 +108,7 @@ const SquadScreen = ({
     return itemList.Collaborators.map((collaborator: CollaboratorsPropsType) => (
       <View key={collaborator.Id}>
         <Spacer size={theme.spacings.sSmall} />
-        <SquadMembers
+        <SquadMembersItem
           itemData={collaborator}
           onItemPress={handleSelectedItem}
           onItemDeleted={handleListItens}
@@ -128,10 +125,11 @@ const SquadScreen = ({
       <NavigationBar onBackPress={handleBackPress} addDivider />
       <ScrollView contentContainerStyle={scrollViewStyles}>
         <Text variant="headingSmall" weight="bold" color="neutralGray700">{itemList?.Name}</Text>
-        <Text color="neutralGray700">Responsabilidades: <Text weight="bold">{itemList?.Description}</Text></Text>
+        <Spacer size={theme.spacings.sXXS} />
+        <Text color="neutralGray700">Responsabilidades: <Text weight="bold" color="neutralBlack">{itemList?.Description}</Text></Text>
         {renderAddNewItemList()}
         <Spacer size={theme.spacings.sLarge} />
-        <Text weight="bold" color="neutralGray700">Squads:</Text>
+        <Text weight="bold" color="neutralGray700">Colaboradores:</Text>
         <Spacer size={theme.spacings.sXS} />
         {renderSquadList()}
       </ScrollView>

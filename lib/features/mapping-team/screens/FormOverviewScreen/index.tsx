@@ -123,12 +123,14 @@ const FormOverviewScreen = wrapForm<FormOverviewScreenPropsType, FormValues>(
   }, [values]);
 
   useDidMount(() => {
+    // console.log('editedItem: ', editedItem);
     if (!editedItem) {
       form.reset();
       return;
     }
 
-    // TODO: ao invés de ser 0 fixo nas listas, trazer o item selecionado de onde for chamado
+    // console.log('T1');
+    // * Foi mantido o index 0 a nível como exemplo
     form.initialize({
       structure: mapStructureRecord(listStructureItem[0]),
       name: editedItem.Name,
@@ -136,31 +138,29 @@ const FormOverviewScreen = wrapForm<FormOverviewScreenPropsType, FormValues>(
     });
   });
 
-  const handleFormSubmit: OnSubmitFormType<FormValues> = useCallback(
-    async values => {
-      const { structure, name, office } = values;
+  // * aqui seria salvo os dados no banco de dados
+  const handleFormSubmit: OnSubmitFormType<FormValues> = useCallback(async values => {
+    const { structure, name, office } = values;
 
-      console.log('structure: ', structure);
-      console.log('name: ', name);
-      console.log('office: ', office);
+    console.log('structure: ', structure);
+    console.log('name: ', name);
+    console.log('office: ', office);
 
-      navigation.replace('OverviewScreen');
-    },
-    [navigation],
-  );
+    navigation.replace('OverviewScreen');
+  }, [navigation]);
 
-  const handleStructuteInputValidation = useCallback((value?: InputSelectValueType<StructureType>) => (value ? undefined : 'Campo obrigatório'), []);
+  const handleStructureInputValidation = useCallback((value?: InputSelectValueType<StructureType>) => (value ? undefined : 'Campo obrigatório'), []);
   const handleOfficeInputValidation = useCallback((value?: InputSelectValueType<OfficeType>) => (value ? undefined : 'Campo obrigatório'), []);
 
   const requestOfficeRecords = useCallback(async (): InputSelectResponseType<OfficeType> => {
-    // const result = await personalDataService.getMaritalStatuses();
-    // if (isResponseError(result)) {
-    //   showCommonErrors(showModal, result);
-    //   return {
-    //     canLoadMore: false,
-    //     result: [],
-    //   };
-    // }
+    // * const result = await officeDataService.getOfficeList();
+    // * if (isResponseError(result)) {
+    // *   showCommonErrors(showModal, result);
+    // *   return {
+    // *     canLoadMore: false,
+    // *     result: [],
+    // *   };
+    // * }
 
     return {
       canLoadMore: false,
@@ -169,14 +169,14 @@ const FormOverviewScreen = wrapForm<FormOverviewScreenPropsType, FormValues>(
   }, []);
 
   const requestStructureRecords = useCallback(async (): InputSelectResponseType<StructureType> => {
-    // const result = await personalDataService.getMaritalStatuses();
-    // if (isResponseError(result)) {
-    //   showCommonErrors(showModal, result);
-    //   return {
-    //     canLoadMore: false,
-    //     result: [],
-    //   };
-    // }
+    // * const result = await structureDataService.getStructureList();
+    // * if (isResponseError(result)) {
+    // *   showCommonErrors(showModal, result);
+    // *   return {
+    // *     canLoadMore: false,
+    // *     result: [],
+    // *   };
+    // * }
 
     return {
       canLoadMore: false,
@@ -211,13 +211,13 @@ const FormOverviewScreen = wrapForm<FormOverviewScreenPropsType, FormValues>(
             requestRecords={requestStructureRecords}
             mapRecord={mapStructureRecord}
             required
-            validate={handleStructuteInputValidation}
+            validate={handleStructureInputValidation}
             showSearch={false}
             navigationBarTitle="Estrutura"
-          />
+            />
           <Spacer size={theme.spacings.sLarge} />
           <InputText.Field
-            testID="input-number-card"
+            testID='input-name'
             label="Nome"
             name="name"
             required
@@ -241,7 +241,7 @@ const FormOverviewScreen = wrapForm<FormOverviewScreenPropsType, FormValues>(
       bottomContent={(
         // TODO: alterar cores da variant do botão no mapping-style-guide
         <Button
-          testID="create-credit-password-btn-continue"
+          testID="save-button"
           size="large"
           variant="containedPrimary"
           disabled={isButtonEnabled}

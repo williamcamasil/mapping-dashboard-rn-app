@@ -1,19 +1,44 @@
 import React from 'react';
 
-import { NavigationContainer } from '@react-navigation/native';
-import { render, fireEvent, waitFor } from '@testing-library/react-native';
+import { NavigationContainer, RouteProp, StackActions } from '@react-navigation/native';
+import { render, waitFor, fireEvent } from '@testing-library/react-native';
 import { AppProvider, createNavigationMock } from 'mapping-context-rn';
 import { ModalProvider, ThemeProvider } from 'mapping-style-guide-rn';
 
 import FormOverviewScreen from '.';
+import { FormType, TeamStructureEnum } from '../../api/TeamService';
+import NavigatorParamList from '../../navigation/types';
 
-const renderScreen = async () => {
+const mockMemberData = {
+  Id: 1,
+  Main: false,
+  Structure: TeamStructureEnum.EQUIPE,
+  Name: '',
+  Type: '',
+};
+
+const mockFormType = 'create';
+
+const renderScreen = async (
+  editedItem = mockMemberData,
+  formType = mockFormType as FormType,
+  route: RouteProp<NavigatorParamList, 'FormOverviewScreen'> = {
+    key: '',
+    name: 'FormOverviewScreen',
+    params: {
+      editedItem,
+      formType,
+    },
+  },
+) => {
   const result = render(
     <ThemeProvider>
       <AppProvider>
         <NavigationContainer>
           <ModalProvider throttleTimeout={0}>
-            <FormOverviewScreen />
+            <FormOverviewScreen
+              route={route}
+            />
           </ModalProvider>
         </NavigationContainer>
       </AppProvider>
@@ -26,27 +51,43 @@ const renderScreen = async () => {
 };
 
 describe('FormOverviewScreen', () => {
-  it('Should render screen with component banner carousel', async () => {
+  it('Should render screen inputs and button "Salvar" disabled', async () => {
     const screen = await renderScreen();
-    screen.getByTestId('carousel-flat-list-id');
+    await waitFor(() => expect(screen.getByText('Salvar')).toBeDisabled());
+    screen.getByText('Criar');
+    screen.getByText('Estrutura');
+    screen.getByTestId('input-name');
+    screen.getByText('Cargo');
   });
 
-  it('Should click start button and be redirected to cpf data screen', async () => {
+  it('Should render screen with title "Editar"', async () => {
+    const screen = await renderScreen(mockMemberData, 'edit');
+    screen.getByText('Editar');
+  });
+
+  it('Should fill inputs, click on button "Salvar" and navigate to OverviewScreen', async () => {
     const navigationHolder = createNavigationMock();
     const screen = await renderScreen();
-
-    const button = screen.getByTestId('btn-start');
-    fireEvent.press(button);
-
-    expect(navigationHolder.navigate).toHaveBeenCalledWith('CpfScreen');
+    screen.getByText('Criar');
+    const buttonSave = screen.getByText('Salvar');
+    expect(buttonSave).toBeDisabled();
+    fireEvent.press((await screen.findAllByTestId('input-select-button'))[0]);
+    fireEvent.press(await screen.findByText('Equipe'));
+    fireEvent.changeText(await screen.findByTestId('input-name'), 'Teste Mapping');
+    fireEvent.press((await screen.findAllByTestId('input-select-button'))[1]);
+    fireEvent.press(await screen.findByText('Coordenador'));
+    expect(buttonSave).toBeEnabled();
+    fireEvent.press(buttonSave);
+    await waitFor(() => { expect(navigationHolder.dispatch).toBeCalledWith(StackActions.replace('OverviewScreen')); });
+    screen.unmount();
   });
 
-  it('Should click on the call center button and be redirected to the help center screen', async () => {
+  it('should user press navigation back icon', async () => {
+    const navigation = createNavigationMock();
     const screen = await renderScreen();
-
-    const button = screen.getByTestId('link-help-center');
-    fireEvent.press(button);
-
-    await screen.findByText('Central de relacionamento');
+    const navigationIconBack = screen.getByTestId('go-back-action');
+    fireEvent.press(navigationIconBack);
+    expect(navigation.goBack).toBeCalled();
+    screen.unmount();
   });
 });

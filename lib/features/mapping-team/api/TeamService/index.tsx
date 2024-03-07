@@ -25,6 +25,8 @@ export type OverviewScreenPropsType = {
   members: MemberPropsType[];
 };
 
+export type FormType = 'create' | 'edit';
+
 export const teamList = {
   team: 'Omni Bulls',
   userType: AccessTypeEnum.ADMIN,
@@ -33,18 +35,18 @@ export const teamList = {
       Id: 1,
       Main: true,
       Structure: TeamStructureEnum.EQUIPE,
-      Name: 'Edi Piovezani',
+      Name: 'Edi Matias',
       Type: 'CO do projeto',
       Collaborator: {
         Id: 1,
-        Name: 'Edi Piovezani',
+        Name: 'Edi Matias',
         Office: 'CO do projeto',
         Project: 'Omni Bulls',
         Squad: '',
         Company: 'Omni',
         Hired: 1997,
         Skills: 'Gerir times',
-        Email: 'edi.piovezani@omni.com.br',
+        Email: 'edi.matias@omni.com.br',
         Location: 'São Paulo (Capital)',
         Responsibilities: 'Gestão de projetos',
       }

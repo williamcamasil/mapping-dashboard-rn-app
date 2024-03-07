@@ -25,21 +25,32 @@ const DashboardScreen = () => {
   const theme = useTheme();
   const navigation = useNavigationHolder();
 
-  const goToNextPage = useCallback(() => {
+  const handleLogout = useCallback(() => {
+    navigation.replace('LOGIN');
+  }, [navigation]);
+
+  const handleSendNextPage = useCallback(() => {
     navigation.navigate('MappingTeamNavigation');
   }, [navigation]);
 
   return (
-    <Container padding={theme.spacings.sLarge}>
-      <Text>
+    <Container paddingHorizontal={theme.spacings.sLarge} paddingVertical={theme.spacings.sXXL}>
+      <Text variant="headingSmall" weight="bold" color="neutralGray700">
         Dashboard
       </Text>
       <Spacer size={theme.spacings.sLarge} />
       <Button
-        testID="activate-credit-landing-page-next-button"
+        variant="outlinedPrimary"
+        size="large"
+        onPress={handleLogout}
+      >
+        Logout
+      </Button>
+      <Spacer size={theme.spacings.sLarge} />
+      <Button
         variant="containedPrimary"
         size="large"
-        onPress={goToNextPage}
+        onPress={handleSendNextPage}
       >
         Equipe
       </Button>

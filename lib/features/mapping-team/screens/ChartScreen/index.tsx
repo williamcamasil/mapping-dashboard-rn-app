@@ -26,7 +26,7 @@ import {
   useViewStyles,
 } from 'mapping-style-guide-rn';
 import { ChartScreenPropsType, SquadPropsType, squadList } from '../../api/SquadService';
-import LeaderMembers from '../../components/LeaderMembers';
+import LeaderMembersItem from '../../components/LeaderMembersItem';
 
 const styles = StyleSheet.create({
   containerRow: {
@@ -46,12 +46,11 @@ const ChartScreen = () => {
   ], [theme]);
 
   const { call: handleListItens, loading } = useAsync(async () => {
-    // const responseData = await teamService.getTeamList();
-
-    // if (isResponseError(responseData)) {
-    //   showCommonErrors(showModal, responseData);
-    //   return;
-    // }
+    // * const responseData = await teamService.getTeamList();
+    // * if (isResponseError(responseData)) {
+    // *   showCommonErrors(showModal, responseData);
+    // *   return;
+    // * }
 
     setItemList(squadList);
   }, [showModal]);
@@ -82,9 +81,9 @@ const ChartScreen = () => {
         <Spacer size={theme.spacings.sLarge} />
         <MenuOption onPress={handleAddNewItem}>
           <View style={styles.containerRow}>
-            <Icons.Default.Plus2 color={theme.colors.secondary400} />
+            <Icons.Default.Plus2 color={theme.colors.primary400} />
             <Spacer size={theme.spacings.sXXS} />
-            <Text color="neutralGray700" weight="bold">Novo squad</Text>
+            <Text color="neutralGray700" weight="bold">Nova squad</Text>
           </View>
         </MenuOption>
       </>
@@ -101,7 +100,7 @@ const ChartScreen = () => {
     return itemList.squads.map((squad: SquadPropsType) => (
       <View key={squad.Id}>
         <Spacer size={theme.spacings.sSmall} />
-        <LeaderMembers
+        <LeaderMembersItem
           itemData={squad}
           onItemPress={handleSelectedItem}
           onItemDeleted={handleListItens}
@@ -118,7 +117,8 @@ const ChartScreen = () => {
       <NavigationBar onBackPress={handleBackPress} addDivider />
       <ScrollView contentContainerStyle={scrollViewStyles}>
         <Text variant="headingSmall" weight="bold" color="neutralGray700">Organização da equipe</Text>
-        <Text color="neutralGray700">Organograma dos times: <Text weight="bold">{squadList.team}</Text></Text>
+        <Spacer size={theme.spacings.sXXS} />
+        <Text color="neutralGray700">Organograma dos times: <Text weight="bold" color="neutralBlack">{squadList.team}</Text></Text>
         {renderAddNewItemList()}
         <Spacer size={theme.spacings.sLarge} />
         <Text weight="bold" color="neutralGray700">Squads:</Text>

@@ -35,19 +35,18 @@ const OptionsBottomSheet = ({
   }, [squadData, onDismiss, showModal, onItemDeleted]);
 
   const handleEditItemList = useCallback(() => {
-    // console.log('squadData: ', squadData);
     getNavigationHolder().navigate('FormOverviewScreen', { editedItem: squadData, formType: 'edit' });
     onDismiss?.();
   }, [squadData,  onDismiss, showModal]);
 
   const handleEditItemListInformation = useCallback(() => {
-    // TODO: editar informações do item da lista
+    getNavigationHolder().navigate('FormSquadScreen', { editedItem: squadData.Collaborator, formType: 'edit' });
     onDismiss?.();
   }, [squadData,  onDismiss, showModal]);
 
   return (
-    <BottomSheet {...others} onDismiss={onDismiss}>
-      <BottomSheet.Title>o que deseja fazer?</BottomSheet.Title>
+    <BottomSheet {...others} onDismiss={onDismiss} testID='team-members-bottom-sheet'>
+      <BottomSheet.Title>O que deseja fazer?</BottomSheet.Title>
       <Text>Escolha uma opção</Text>
       <Spacer size={theme.spacings.sLarge} />
       <Container>

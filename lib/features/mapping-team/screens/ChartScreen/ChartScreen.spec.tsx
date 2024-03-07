@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { render, fireEvent, waitFor } from '@testing-library/react-native';
-import { AppProvider, createNavigationMock } from 'mapping-context-rn';
+import { render, waitFor } from '@testing-library/react-native';
+import { AppProvider } from 'mapping-context-rn';
 import { ModalProvider, ThemeProvider } from 'mapping-style-guide-rn';
 
 import ChartScreen from '.';
@@ -26,27 +26,9 @@ const renderScreen = async () => {
 };
 
 describe('ChartScreen', () => {
-  it('Should render screen with component banner carousel', async () => {
+  it('Should render screen with ...', async () => {
     const screen = await renderScreen();
-    screen.getByTestId('carousel-flat-list-id');
-  });
-
-  it('Should click start button and be redirected to cpf data screen', async () => {
-    const navigationHolder = createNavigationMock();
-    const screen = await renderScreen();
-
-    const button = screen.getByTestId('btn-start');
-    fireEvent.press(button);
-
-    expect(navigationHolder.navigate).toHaveBeenCalledWith('CpfScreen');
-  });
-
-  it('Should click on the call center button and be redirected to the help center screen', async () => {
-    const screen = await renderScreen();
-
-    const button = screen.getByTestId('link-help-center');
-    fireEvent.press(button);
-
-    await screen.findByText('Central de relacionamento');
+    screen.getByText('Squads:');
+    screen.unmount();
   });
 });

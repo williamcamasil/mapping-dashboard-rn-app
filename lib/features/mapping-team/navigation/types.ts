@@ -1,6 +1,6 @@
 import { ParamListBase } from '@react-navigation/native';
 import { CollaboratorsPropsType, SquadPropsType } from '../api/SquadService';
-import { MemberPropsType } from '../api/TeamService';
+import { FormType, MemberPropsType } from '../api/TeamService';
 
 type NavigatorParamList = ParamListBase & {
   OverviewScreen: undefined;
@@ -13,15 +13,15 @@ type NavigatorParamList = ParamListBase & {
   }
   FormOverviewScreen: {
     editedItem?: MemberPropsType;
-    formType: 'create' | 'edit';
+    formType: FormType;
   }
   FormChartScreen: {
     editedItem?: any;
-    formType: 'create' | 'edit';
+    formType: FormType;
   }
   FormSquadScreen: {
-    editedItem?: any;
-    formType: 'create' | 'edit';
+    editedItem?: CollaboratorsPropsType;
+    formType: FormType;
   }
 };
 

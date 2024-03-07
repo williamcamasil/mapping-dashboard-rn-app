@@ -17,7 +17,7 @@ import {
 import OptionsBottomSheet from './OptionsBottomSheet';
 import { SquadPropsType } from '../../api/SquadService';
 
-type LeaderMembersType = {
+type LeaderMembersItemType = {
   itemData: SquadPropsType;
   onItemPress?: (data: SquadPropsType) => void;
   onItemDeleted?: () => void;
@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const LeaderMembers = ({
+const LeaderMembersItem = ({
   itemData, onItemPress, onItemDeleted, isAdminUser,
-}: LeaderMembersType) => {
+}: LeaderMembersItemType) => {
   const theme = useTheme();
   const showModal = useModal();
 
@@ -64,7 +64,6 @@ const LeaderMembers = ({
   return (
     <TouchableOpacity
       testID="item-list"
-      activeOpacity={onItemPress ? 0 : 1}
       style={containerItemStyles}
       onPress={handleItemPress}
     >
@@ -86,4 +85,4 @@ const LeaderMembers = ({
   );
 };
 
-export default LeaderMembers;
+export default LeaderMembersItem;
