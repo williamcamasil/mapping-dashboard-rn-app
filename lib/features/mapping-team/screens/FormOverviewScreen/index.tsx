@@ -123,17 +123,17 @@ const FormOverviewScreen = wrapForm<FormOverviewScreenPropsType, FormValues>(
   }, [values]);
 
   useDidMount(() => {
-    // console.log('editedItem: ', editedItem);
-    if (!editedItem) {
+    console.log('formType: ', formType);
+    console.log('editedItem: ', editedItem);
+    if (formType === 'create') {
       form.reset();
       return;
     }
 
-    // console.log('T1');
     // * Foi mantido o index 0 a nível como exemplo
     form.initialize({
       structure: mapStructureRecord(listStructureItem[0]),
-      name: editedItem.Name,
+      name: editedItem!.Name,
       office: mapOfficeRecord(listOfficeItem[0]),
     });
   });
@@ -239,9 +239,7 @@ const FormOverviewScreen = wrapForm<FormOverviewScreenPropsType, FormValues>(
         </Container>
       }
       bottomContent={(
-        // TODO: alterar cores da variant do botão no mapping-style-guide
         <Button
-          testID="save-button"
           size="large"
           variant="containedPrimary"
           disabled={isButtonEnabled}

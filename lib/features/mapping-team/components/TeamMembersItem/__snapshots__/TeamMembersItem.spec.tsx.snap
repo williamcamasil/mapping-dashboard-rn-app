@@ -135,7 +135,7 @@ exports[`TeamMembersItem Should match snapshot 1`] = `
             }
             stroke={
               {
-                "payload": 4294360225,
+                "payload": 4284910024,
                 "type": 0,
               }
             }

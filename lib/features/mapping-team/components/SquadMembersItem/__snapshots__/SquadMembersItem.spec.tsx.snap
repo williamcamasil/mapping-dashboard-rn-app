@@ -70,7 +70,9 @@ exports[`SquadMembersItem Should match snapshot 1`] = `
             "lineHeight": 22,
           }
         }
-      />
+      >
+        Adriano Mendes
+      </Text>
       <Text
         style={
           {
@@ -101,7 +103,9 @@ exports[`SquadMembersItem Should match snapshot 1`] = `
           "lineHeight": 22,
         }
       }
-    />
+    >
+      Gestor
+    </Text>
   </View>
   <RNSVGSvgView
     align="xMidYMid"

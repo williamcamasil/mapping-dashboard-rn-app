@@ -9,7 +9,7 @@ import FormOverviewScreen from '.';
 import { FormType, TeamStructureEnum } from '../../api/TeamService';
 import NavigatorParamList from '../../navigation/types';
 
-const mockMemberData = {
+const defaultMockMemberData = {
   Id: 1,
   Main: false,
   Structure: TeamStructureEnum.EQUIPE,
@@ -20,7 +20,7 @@ const mockMemberData = {
 const mockFormType = 'create';
 
 const renderScreen = async (
-  editedItem = mockMemberData,
+  editedItem = defaultMockMemberData,
   formType = mockFormType as FormType,
   route: RouteProp<NavigatorParamList, 'FormOverviewScreen'> = {
     key: '',
@@ -52,17 +52,17 @@ const renderScreen = async (
 
 describe('FormOverviewScreen', () => {
   it('Should render screen inputs and button "Salvar" disabled', async () => {
-    const screen = await renderScreen();
+    const screen = await renderScreen(defaultMockMemberData, 'edit');
     await waitFor(() => expect(screen.getByText('Salvar')).toBeDisabled());
-    screen.getByText('Criar');
+    screen.getByText('Editar');
     screen.getByText('Estrutura');
     screen.getByTestId('input-name');
     screen.getByText('Cargo');
   });
 
-  it('Should render screen with title "Editar"', async () => {
-    const screen = await renderScreen(mockMemberData, 'edit');
-    screen.getByText('Editar');
+  it('Should render screen with title "Criar"', async () => {
+    const screen = await renderScreen();
+    screen.getByText('Criar');
   });
 
   it('Should fill inputs, click on button "Salvar" and navigate to OverviewScreen', async () => {

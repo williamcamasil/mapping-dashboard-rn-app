@@ -40,8 +40,8 @@ const OptionsBottomSheet = ({
   }, [squadData,  onDismiss, showModal]);
 
   return (
-    <BottomSheet {...others} onDismiss={onDismiss}>
-      <BottomSheet.Title>o que deseja fazer?</BottomSheet.Title>
+    <BottomSheet {...others} onDismiss={onDismiss} testID='leader-members-bottom-sheet'>
+      <BottomSheet.Title>O que deseja fazer?</BottomSheet.Title>
       <Text>Escolha uma opção</Text>
       <Spacer size={theme.spacings.sLarge} />
       <Container>

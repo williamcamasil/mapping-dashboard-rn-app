@@ -70,7 +70,9 @@ exports[`LeaderMembersItem Should match snapshot 1`] = `
             "lineHeight": 22,
           }
         }
-      />
+      >
+        Arquitetura
+      </Text>
       <Text
         style={
           {
@@ -101,7 +103,9 @@ exports[`LeaderMembersItem Should match snapshot 1`] = `
           "lineHeight": 22,
         }
       }
-    />
+    >
+      Yano
+    </Text>
   </View>
   <RNSVGSvgView
     align="xMidYMid"

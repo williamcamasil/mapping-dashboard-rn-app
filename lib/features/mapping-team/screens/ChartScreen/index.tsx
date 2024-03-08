@@ -72,7 +72,8 @@ const ChartScreen = () => {
   }, []);
 
   const renderAddNewItemList = () => {
-    if (!squadList) return null;
+    // * esse fluxo foi comentado pois não existe endpoint que possam retornar os dados vazios
+    // * if (!squadList) return null;
 
     if (!loggedUser?.isAdminUser) return null;
 
@@ -92,12 +93,12 @@ const ChartScreen = () => {
 
   const renderSquadList = () => {
     if (loading || !itemList) return null;
+    // * esse fluxo foi comentado pois não existe endpoint que possam retornar os dados vazios
+    // * if (!itemList.squads.length) {
+    // *   return (<Text>Não existem itens cadastrados ainda na lista, adicione novos itens clicando no botão Novo acima.</Text>);
+    // * }
 
-    if (!itemList.squads.length) {
-      return (<Text>Não existem itens cadastrados ainda na lista, adicione novos itens clicando no botão Novo acima.</Text>);
-    }
-
-    return itemList.squads.map((squad: SquadPropsType) => (
+    return itemList!.squads.map((squad: SquadPropsType) => (
       <View key={squad.Id}>
         <Spacer size={theme.spacings.sSmall} />
         <LeaderMembersItem

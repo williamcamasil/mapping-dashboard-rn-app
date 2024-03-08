@@ -149,22 +149,22 @@ const FormSquadScreen = wrapForm<FormSquadScreenPropsType, FormValues>(
   }, [values]);
 
   useDidMount(() => {
-    if (!editedItem) {
+    if (formType === 'create') {
       form.reset();
       return;
     }
 
-    // TODO: ao invés de ser 0 fixo nas listas, trazer o item selecionado de onde for chamado
+    // * Foi mantido o index 0 a nível como exemplo
     form.initialize({
-      name: editedItem.Name,
+      name: editedItem!.Name,
       office: mapOfficeRecord(listOfficeItem[0]),
-      project: editedItem.Project,
+      project: editedItem!.Project,
       squad: mapStructureRecord(listSquadItem[0]),
-      company: editedItem.Company,
-      skills: editedItem.Skills,
-      email: editedItem.Email,
-      location: editedItem.Location,
-      responsibilities: editedItem.Responsibilities,
+      company: editedItem!.Company,
+      skills: editedItem!.Skills,
+      email: editedItem!.Email,
+      location: editedItem!.Location,
+      responsibilities: editedItem!.Responsibilities,
     });
   });
 
@@ -182,7 +182,6 @@ const FormSquadScreen = wrapForm<FormSquadScreenPropsType, FormValues>(
       console.log('location: ', location);
       console.log('responsibilities: ', responsibilities);
 
-      // navigation.replace('SquadScreen');
       navigation.replace('OverviewScreen');
     },
     [navigation],
@@ -192,14 +191,14 @@ const FormSquadScreen = wrapForm<FormSquadScreenPropsType, FormValues>(
   const handleOfficeInputValidation = useCallback((value?: InputSelectValueType<OfficeType>) => (value ? undefined : 'Campo obrigatório'), []);
 
   const requestOfficeRecords = useCallback(async (): InputSelectResponseType<OfficeType> => {
-    // const result = await personalDataService.getMaritalStatuses();
-    // if (isResponseError(result)) {
-    //   showCommonErrors(showModal, result);
-    //   return {
-    //     canLoadMore: false,
-    //     result: [],
-    //   };
-    // }
+    // * const result = await personalDataService.getMaritalStatuses();
+    // * if (isResponseError(result)) {
+    // *   showCommonErrors(showModal, result);
+    // *   return {
+    // *     canLoadMore: false,
+    // *     result: [],
+    // *   };
+    // * }
 
     return {
       canLoadMore: false,
@@ -208,14 +207,14 @@ const FormSquadScreen = wrapForm<FormSquadScreenPropsType, FormValues>(
   }, []);
 
   const requestSquadRecords = useCallback(async (): InputSelectResponseType<SquadType> => {
-    // const result = await personalDataService.getMaritalStatuses();
-    // if (isResponseError(result)) {
-    //   showCommonErrors(showModal, result);
-    //   return {
-    //     canLoadMore: false,
-    //     result: [],
-    //   };
-    // }
+    // * const result = await personalDataService.getMaritalStatuses();
+    // * if (isResponseError(result)) {
+    // *   showCommonErrors(showModal, result);
+    // *   return {
+    // *     canLoadMore: false,
+    // *     result: [],
+    // *   };
+    // * }
 
     return {
       canLoadMore: false,
@@ -244,7 +243,7 @@ const FormSquadScreen = wrapForm<FormSquadScreenPropsType, FormValues>(
         <Container>
           <Spacer size={theme.spacings.sLarge} />
           <InputText.Field
-            testID="input-number-card"
+            testID="input-name"
             label="Nome"
             name="name"
             required
@@ -264,7 +263,7 @@ const FormSquadScreen = wrapForm<FormSquadScreenPropsType, FormValues>(
           />
           <Spacer size={theme.spacings.sLarge} />
           <InputText.Field
-            testID="input-number-card"
+            testID="input-project"
             label="Projeto"
             name="project"
             required
@@ -284,7 +283,7 @@ const FormSquadScreen = wrapForm<FormSquadScreenPropsType, FormValues>(
           />
           <Spacer size={theme.spacings.sLarge} />
           <InputText.Field
-            testID="input-number-card"
+            testID="input-company"
             label="Empresa"
             name="company"
             required
@@ -292,7 +291,7 @@ const FormSquadScreen = wrapForm<FormSquadScreenPropsType, FormValues>(
           />
           <Spacer size={theme.spacings.sLarge} />
           <InputText.Field
-            testID="input-number-card"
+            testID="input-skills"
             label="Conhecimentos"
             name="skills"
             required
@@ -300,7 +299,7 @@ const FormSquadScreen = wrapForm<FormSquadScreenPropsType, FormValues>(
           />
           <Spacer size={theme.spacings.sLarge} />
           <InputText.Field
-            testID="input-number-card"
+            testID="input-email"
             label="E-mail"
             name="email"
             required
@@ -308,7 +307,7 @@ const FormSquadScreen = wrapForm<FormSquadScreenPropsType, FormValues>(
           />
           <Spacer size={theme.spacings.sLarge} />
           <InputText.Field
-            testID="input-number-card"
+            testID="input-location"
             label="Localização"
             name="location"
             required
@@ -316,7 +315,7 @@ const FormSquadScreen = wrapForm<FormSquadScreenPropsType, FormValues>(
           />
           <Spacer size={theme.spacings.sLarge} />
           <InputText.Field
-            testID="input-number-card"
+            testID="input-responsibilities"
             label="Responsabilidades"
             name="responsibilities"
             required
@@ -326,9 +325,7 @@ const FormSquadScreen = wrapForm<FormSquadScreenPropsType, FormValues>(
         </Container>
       }
       bottomContent={(
-        // TODO: alterar cores da variant do botão no mapping-style-guide
         <Button
-          testID="create-credit-password-btn-continue"
           size="large"
           variant="containedPrimary"
           disabled={isButtonEnabled}

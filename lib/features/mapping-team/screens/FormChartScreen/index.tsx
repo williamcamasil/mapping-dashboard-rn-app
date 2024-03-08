@@ -108,12 +108,12 @@ const FormChartScreen = wrapForm<FormChartScreenPropsType, FormValues>(
   }, [values]);
 
   useDidMount(() => {
-    if (!editedItem) {
+    if (formType === 'create') {
       form.reset();
       return;
     }
 
-    // TODO: ao invés de ser 0 fixo nas listas, trazer o item selecionado de onde for chamado
+    // * Foi mantido o index 0 a nível como exemplo
     form.initialize({
       squad: mapSquadRecord(listSquadItem[0]),
       manager: editedItem.Name,
@@ -137,14 +137,14 @@ const FormChartScreen = wrapForm<FormChartScreenPropsType, FormValues>(
   const handleSquadInputValidation = useCallback((value?: InputSelectValueType<SquadType>) => (value ? undefined : 'Campo obrigatório'), []);
 
   const requestSquadRecords = useCallback(async (): InputSelectResponseType<SquadType> => {
-    // const result = await personalDataService.getMaritalStatuses();
-    // if (isResponseError(result)) {
-    //   showCommonErrors(showModal, result);
-    //   return {
-    //     canLoadMore: false,
-    //     result: [],
-    //   };
-    // }
+    // * const result = await personalDataService.getMaritalStatuses();
+    // * if (isResponseError(result)) {
+    // *   showCommonErrors(showModal, result);
+    // *   return {
+    // *     canLoadMore: false,
+    // *     result: [],
+    // *   };
+    // * }
 
     return {
       canLoadMore: false,
@@ -179,7 +179,7 @@ const FormChartScreen = wrapForm<FormChartScreenPropsType, FormValues>(
           />
           <Spacer size={theme.spacings.sLarge} />
           <InputText.Field
-            testID="input-number-card"
+            testID="input-name-manager"
             label="Gestor"
             name="manager"
             required
@@ -187,7 +187,7 @@ const FormChartScreen = wrapForm<FormChartScreenPropsType, FormValues>(
           />
           <Spacer size={theme.spacings.sLarge} />
           <InputTextArea.Field
-            testID="input-number-card"
+            testID="input-description"
             label="Descrição da Squad"
             name="description"
             required
@@ -198,9 +198,7 @@ const FormChartScreen = wrapForm<FormChartScreenPropsType, FormValues>(
         </Container>
       }
       bottomContent={(
-        // TODO: alterar cores da variant do botão no mapping-style-guide
         <Button
-          testID="create-credit-password-btn-continue"
           size="large"
           variant="containedPrimary"
           disabled={isButtonEnabled}

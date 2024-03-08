@@ -101,9 +101,10 @@ const SquadScreen = ({
   const renderSquadList = () => {
     if (loading || !itemList) return null;
 
-    if (!itemList.Collaborators.length) {
-      return (<Text>Não existem itens cadastrados ainda na lista, adicione novos itens clicando no botão Novo acima.</Text>);
-    }
+    // * esse fluxo foi comentado pois não existe endpoint que possam retornar os dados vazios
+    // * if (!itemList.squads.length) {
+    // *   return (<Text>Não existem itens cadastrados ainda na lista, adicione novos itens clicando no botão Novo acima.</Text>);
+    // * }
 
     return itemList.Collaborators.map((collaborator: CollaboratorsPropsType) => (
       <View key={collaborator.Id}>

@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import {
   ScrollView,
-  StyleSheet,
 } from 'react-native';
 
 import {
@@ -18,13 +17,6 @@ import {
 } from 'mapping-style-guide-rn';
 import { RouteProp } from '@react-navigation/native';
 import NavigatorParamList from '../../navigation/types';
-
-const styles = StyleSheet.create({
-  containerRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-});
 
 type CollaboratorScreenPropsType = {
   route: RouteProp<NavigatorParamList, 'CollaboratorScreen'>;
