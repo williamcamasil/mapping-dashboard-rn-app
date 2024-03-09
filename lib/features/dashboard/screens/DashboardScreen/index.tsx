@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 
 import {
+  useAppContext,
   useNavigationHolder,
 } from 'mapping-context-rn';
 import {
@@ -24,6 +25,7 @@ const styles = StyleSheet.create({
 const DashboardScreen = () => {
   const theme = useTheme();
   const navigation = useNavigationHolder();
+  const { loggedUser } = useAppContext();
 
   const handleLogout = useCallback(() => {
     navigation.replace('LOGIN');
@@ -38,6 +40,8 @@ const DashboardScreen = () => {
       <Text variant="headingSmall" weight="bold" color="neutralGray700">
         Dashboard
       </Text>
+      <Spacer size={theme.spacings.sXXS} />
+      <Text color="neutralGray700">Logado com a conta, <Text weight="bold" color="neutralBlack">{loggedUser?.email}</Text></Text>
       <Spacer size={theme.spacings.sLarge} />
       <Button
         variant="outlinedPrimary"
