@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TeamMembersItem Should match snapshot 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "opacity": 1,
+      "paddingRight": 12,
+    }
+  }
+  testID="item-list"
+>
+  <View
+    style={
+      {
+        "flex": 1,
+        "maxWidth": "88%",
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        allowFontScaling={false}
+        numberOfLines={1}
+        style={
+          {
+            "color": "#3E4149",
+            "flexShrink": 1,
+            "fontFamily": "Averta CY",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "letterSpacing": -0.02,
+            "lineHeight": 22,
+          }
+        }
+      >
+        Edi Matias
+      </Text>
+      <Text
+        style={
+          {
+            "height": 8,
+            "width": 8,
+          }
+        }
+      />
+      <RNSVGSvgView
+        align="xMidYMid"
+        bbHeight="16"
+        bbWidth="16"
+        fill="none"
+        focusable={false}
+        height={16}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        style={
+          [
+            {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            {
+              "flex": 0,
+              "height": 16,
+              "width": 16,
+            },
+          ]
+        }
+        testID="icon-star"
+        vbHeight={20}
+        vbWidth={22}
+        width={16}
+      >
+        <RNSVGGroup
+          fill={null}
+          propList={
+            [
+              "fill",
+            ]
+          }
+        >
+          <RNSVGPath
+            d="M6.45811 18.8596C5.87407 19.1729 5.14668 18.9534 4.83341 18.3694C4.70711 18.1339 4.66301 17.863 4.7081 17.5996L5.5761 12.5766L1.9001 9.01765C1.42757 8.55295 1.42122 7.79318 1.88591 7.32065C2.06948 7.13399 2.30905 7.01248 2.5681 6.97465L7.6501 6.24165L9.9201 1.66765C10.2192 1.07007 10.9462 0.828147 11.5437 1.12729C11.7775 1.24431 11.9671 1.43389 12.0841 1.66765L14.3541 6.24165L19.4361 6.97465C20.0919 7.07041 20.5459 7.67967 20.4501 8.33546C20.4123 8.59451 20.2908 8.83408 20.1041 9.01765L16.4261 12.5746L17.2941 17.5976C17.4072 18.2507 16.9694 18.8717 16.3164 18.9848C16.0522 19.0305 15.7803 18.9865 15.5441 18.8596L11.0001 16.4906L6.45811 18.8596Z"
+            fill={
+              {
+                "payload": 4278190080,
+                "type": 0,
+              }
+            }
+            propList={
+              [
+                "stroke",
+                "strokeWidth",
+                "strokeLinecap",
+                "strokeLinejoin",
+              ]
+            }
+            stroke={
+              {
+                "payload": 4284910024,
+                "type": 0,
+              }
+            }
+            strokeLinecap={1}
+            strokeLinejoin={1}
+            strokeWidth="1.8"
+          />
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <Text
+      style={
+        {
+          "height": 4,
+          "width": 4,
+        }
+      }
+    />
+    <Text
+      allowFontScaling={false}
+      style={
+        {
+          "color": "#676D79",
+          "flexShrink": 1,
+          "fontFamily": "Averta CY",
+          "fontSize": 16,
+          "fontWeight": "normal",
+          "letterSpacing": -0.02,
+          "lineHeight": 22,
+        }
+      }
+    >
+      CO do projeto
+    </Text>
+  </View>
+  <RNSVGSvgView
+    align="xMidYMid"
+    bbHeight="24"
+    bbWidth="24"
+    focusable={false}
+    height={24}
+    meetOrSlice={0}
+    minX={0}
+    minY={0}
+    onPress={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    responsible={true}
+    style={
+      [
+        {
+          "backgroundColor": "transparent",
+          "borderWidth": 0,
+        },
+        {
+          "flex": 0,
+          "height": 24,
+          "width": 24,
+        },
+      ]
+    }
+    testID="icon-dots"
+    vbHeight={32}
+    vbWidth={32}
+    width={24}
+  >
+    <RNSVGGroup
+      fill={
+        {
+          "payload": 4278190080,
+          "type": 0,
+        }
+      }
+    >
+      <RNSVGGroup
+        fill={
+          {
+            "payload": 4278190080,
+            "type": 0,
+          }
+        }
+        name="Layer_2"
+      >
+        <RNSVGPath
+          d="M16 7a2 2 0 112-2 2 2 0 01-2 2zm0-2zm0 0zm0 0zm0 0zm0 0zm0 0zm0 0zm0 0zM16 18a2 2 0 112-2 2 2 0 01-2 2zm0-2zm0 0zm0 0zm0 0zm0 0zm0 0zm0 0zm0 0zM16 29a2 2 0 112-2 2 2 0 01-2 2zm0-2zm0 0zm0 0zm0 0zm0 0zm0 0zm0 0zm0 0z"
+          fill={
+            {
+              "payload": 4278190080,
+              "type": 0,
+            }
+          }
+          propList={
+            [
+              "strokeWidth",
+            ]
+          }
+          strokeWidth="1.8"
+        />
+      </RNSVGGroup>
+      <RNSVGPath
+        d="M0 0H32V32H0z"
+        fill={null}
+        name="frame"
+        propList={
+          [
+            "fill",
+          ]
+        }
+      />
+    </RNSVGGroup>
+  </RNSVGSvgView>
+</View>
+`;
