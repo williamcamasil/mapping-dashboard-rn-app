@@ -15,7 +15,7 @@ import {
 } from 'mapping-style-guide-rn';
 
 import OptionsBottomSheet from './OptionsBottomSheet';
-import { SquadPropsType } from '../../api/SquadService';
+import { SquadPropsType } from '../../api/SquadService/utils';
 
 type LeaderMembersItemType = {
   itemData: SquadPropsType;

@@ -2,10 +2,17 @@ import React, { useCallback } from 'react';
 
 import {
   AlertModal,
-  BottomSheet, BottomSheetPropsType, Container, MenuOption, Spacer, Text, useDismissAllModals, useModal, useTheme,
+  BottomSheet,
+  BottomSheetPropsType,
+  Container,
+  MenuOption,
+  Spacer,
+  Text,
+  useDismissAllModals,
+  useModal,
+  useTheme,
 } from 'mapping-style-guide-rn';
-import { TeamStructureEnum } from '../../api/TeamService';
-import { SquadPropsType } from '../../api/SquadService';
+import { SquadPropsType } from '../../api/SquadService/utils';
 
 type OptionsBottomSheetType = BottomSheetPropsType & {
   squadData: SquadPropsType;

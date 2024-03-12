@@ -26,7 +26,7 @@ import {
 } from 'mapping-style-guide-rn';
 import { RouteProp } from '@react-navigation/native';
 import NavigatorParamList from '../../navigation/types';
-import { CollaboratorsPropsType, SquadPropsType } from '../../api/SquadService';
+import { CollaboratorsPropsType, SquadPropsType } from '../../api/SquadService/utils';
 import SquadMembersItem from '../../components/SquadMembersItem';
 
 const styles = StyleSheet.create({

@@ -15,7 +15,7 @@ import {
 } from 'mapping-style-guide-rn';
 
 import OptionsBottomSheet from './OptionsBottomSheet';
-import { MemberPropsType } from '../../api/TeamService';
+import { MemberPropsType } from '../../api/TeamService/utils';
 
 type TeamMembersItemType = {
   itemData: MemberPropsType;

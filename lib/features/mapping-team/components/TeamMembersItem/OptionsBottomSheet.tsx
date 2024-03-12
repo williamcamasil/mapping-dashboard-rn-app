@@ -4,7 +4,7 @@ import {
   AlertModal,
   BottomSheet, BottomSheetPropsType, Container, MenuOption, Spacer, Text, useDismissAllModals, useModal, useTheme,
 } from 'mapping-style-guide-rn';
-import { MemberPropsType, TeamStructureEnum } from '../../api/TeamService';
+import { MemberPropsType, TeamStructureEnum } from '../../api/TeamService/utils';
 import { getNavigationHolder } from 'mapping-context-rn';
 
 type OptionsBottomSheetType = BottomSheetPropsType & {

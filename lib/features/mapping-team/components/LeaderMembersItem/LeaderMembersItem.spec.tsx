@@ -6,7 +6,7 @@ import {
 import { ModalProvider } from 'mapping-style-guide-rn';
 
 import LeaderMembersItem from '.';
-import { SquadPropsType } from '../../api/SquadService';
+import { SquadPropsType } from '../../api/SquadService/utils';
 
 const defaultItemDataMock = {
   Id: 1,

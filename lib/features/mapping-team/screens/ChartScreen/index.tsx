@@ -25,8 +25,9 @@ import {
   useTheme,
   useViewStyles,
 } from 'mapping-style-guide-rn';
-import { ChartScreenPropsType, SquadPropsType, squadList } from '../../api/SquadService';
+import { ChartScreenPropsType, SquadPropsType } from '../../api/SquadService/utils';
 import LeaderMembersItem from '../../components/LeaderMembersItem';
+import { serviceSquadList } from '../../api/SquadService';
 
 const styles = StyleSheet.create({
   containerRow: {
@@ -52,7 +53,7 @@ const ChartScreen = () => {
     // *   return;
     // * }
 
-    setItemList(squadList);
+    setItemList(serviceSquadList);
   }, [showModal]);
 
   useDidMount(() => {
@@ -119,7 +120,7 @@ const ChartScreen = () => {
       <ScrollView contentContainerStyle={scrollViewStyles}>
         <Text variant="headingSmall" weight="bold" color="neutralGray700">Organização da equipe</Text>
         <Spacer size={theme.spacings.sXXS} />
-        <Text color="neutralGray700">Organograma dos times: <Text weight="bold" color="neutralBlack">{squadList.team}</Text></Text>
+        <Text color="neutralGray700">Organograma dos times: <Text weight="bold" color="neutralBlack">{serviceSquadList.team}</Text></Text>
         {renderAddNewItemList()}
         <Spacer size={theme.spacings.sLarge} />
         <Text weight="bold" color="neutralGray700">Squads:</Text>

@@ -26,7 +26,8 @@ import {
   useViewStyles,
 } from 'mapping-style-guide-rn';
 import TeamMembersItem from '../../components/TeamMembersItem';
-import { MemberPropsType, OverviewScreenPropsType, TeamStructureEnum, teamList } from '../../api/TeamService';
+import { MemberPropsType, OverviewScreenPropsType, TeamStructureEnum } from '../../api/TeamService/utils';
+import { serviceTeamList } from '../../api/TeamService';
 
 const styles = StyleSheet.create({
   containerRow: {
@@ -52,7 +53,7 @@ const OverviewScreen = () => {
     // *   showCommonErrors(showModal, responseData);
     // *   return;
     // * }
-    setItemList(teamList);
+    setItemList(serviceTeamList);
   }, [showModal]);
 
   useDidMount(() => { handleListItens(); });

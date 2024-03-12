@@ -6,7 +6,7 @@ import {
 import { ModalProvider } from 'mapping-style-guide-rn';
 
 import TeamMembersItem from '.';
-import { MemberPropsType, TeamStructureEnum } from '../../api/TeamService';
+import { MemberPropsType, TeamStructureEnum } from '../../api/TeamService/utils';
 
 const defaultItemDataMock = {
   Id: 1,

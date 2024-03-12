@@ -15,7 +15,7 @@ import {
 } from 'mapping-style-guide-rn';
 
 import OptionsBottomSheet from './OptionsBottomSheet';
-import { CollaboratorsPropsType } from '../../api/SquadService';
+import { CollaboratorsPropsType } from '../../api/SquadService/utils';
 
 type SquadMembersItemType = {
   itemData: CollaboratorsPropsType;

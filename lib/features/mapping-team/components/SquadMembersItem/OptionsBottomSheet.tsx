@@ -4,7 +4,7 @@ import {
   AlertModal,
   BottomSheet, BottomSheetPropsType, Container, MenuOption, Spacer, Text, useDismissAllModals, useModal, useTheme,
 } from 'mapping-style-guide-rn';
-import { CollaboratorsPropsType } from '../../api/SquadService';
+import { CollaboratorsPropsType } from '../../api/SquadService/utils';
 
 type OptionsBottomSheetType = BottomSheetPropsType & {
   squadData: CollaboratorsPropsType;
